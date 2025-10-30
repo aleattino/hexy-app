@@ -1,6 +1,21 @@
 # Hexy
 
+🎨 **Extract beautiful color palettes from images**
+
 A perceptually-accurate color palette generator that extracts dominant colors from images using advanced computer vision algorithms.
+
+<div align="center">
+
+[![Live Demo](https://img.shields.io/badge/🚀_LIVE_DEMO-hexy--colors.vercel.app-00C7B7?style=for-the-badge)](https://hexy-colors.vercel.app)
+
+[![Made with React](https://img.shields.io/badge/MADE_WITH-REACT-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TYPESCRIPT-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/VITE-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+
+[![License](https://img.shields.io/badge/LICENSE-MIT-22C55E?style=for-the-badge)](LICENSE)
+[![Version](https://img.shields.io/badge/VERSION-1.0.0-8B5CF6?style=for-the-badge)](https://github.com/aleattino/hexy-app/releases)
+
+</div>
 
 ## Overview
 
