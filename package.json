@@ -1,0 +1,28 @@
+{
+  "name": "hexy-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "mathjs": "^15.0.0",
+    "react": "^19.0.0",
+    "react-awesome-loaders": "^0.1.37",
+    "react-dom": "^19.0.0",
+    "sonner": "^1.5.0",
+    "wouter": "^3.3.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8"
+  }
+}
