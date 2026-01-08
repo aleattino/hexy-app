@@ -20,7 +20,6 @@ export default function PaletteModal({
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
-  const [isDark, setIsDark] = useState(false);
   const [showTopGradient, setShowTopGradient] = useState(false);
   const [showBottomGradient, setShowBottomGradient] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -38,18 +37,6 @@ export default function PaletteModal({
     // Show bottom gradient if not at bottom
     setShowBottomGradient(scrollTop + clientHeight < scrollHeight - 10);
   };
-
-  useEffect(() => {
-    const checkDark = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDark();
-    
-    const observer = new MutationObserver(checkDark);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
-  }, []);
 
   // Check if bottom gradient should show on mount
   useEffect(() => {

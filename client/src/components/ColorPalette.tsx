@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface Color {
   hex: string;
@@ -12,19 +12,6 @@ interface ColorPaletteProps {
 
 export default function ColorPalette({ colors, onViewFullPalette }: ColorPaletteProps) {
   const [copiedColor, setCopiedColor] = useState<string | null>(null);
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkDark = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    checkDark();
-    
-    const observer = new MutationObserver(checkDark);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
-  }, []);
 
   const handleCopyColor = async (hex: string, e: React.MouseEvent) => {
     e.stopPropagation();
