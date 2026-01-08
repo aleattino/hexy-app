@@ -140,10 +140,10 @@ export default function Home() {
   const showPopulatedState = (previewUrl || colors.length > 0) && !isLoading;
 
   return (
-      <div className="flex min-h-screen w-full flex-col bg-background overflow-x-hidden">
-        <Header onMenuClick={() => setIsMenuOpen(true)} />
-        <div className="flex flex-1 flex-col items-center justify-start pt-24 md:pt-32">
-          <div className="flex w-full max-w-[960px] flex-col gap-6 px-4 pb-6 md:pb-12">
+    <div className="flex min-h-screen w-full flex-col bg-background overflow-x-hidden">
+      <Header onMenuClick={() => setIsMenuOpen(true)} />
+      <div className="flex flex-1 flex-col items-center justify-start pt-24 md:pt-24">
+        <div className="flex w-full max-w-[960px] flex-col gap-6 px-4 pb-6 md:pb-12">
             <main className="flex flex-col gap-6">
               <input
                 ref={fileInputRef}
@@ -154,11 +154,11 @@ export default function Home() {
                 aria-hidden="true"
               />
 
-              {/* Empty State */}
+              
               {showEmptyState && (
                 <div 
-                  className={`relative flex flex-col items-center gap-6 md:gap-8 py-8 md:py-16 px-4 rounded-3xl animate-in fade-in duration-500 transition-all ${
-                    isDragging ? 'bg-accent/5 border-2 border-dashed border-accent' : ''
+                  className={`relative flex flex-col items-center gap-6 py-8 md:py-12 px-4 rounded-2xl transition-all duration-150 ${
+                    isDragging ? 'bg-accent/5 border-2 border-dashed border-accent' : 'border-2 border-transparent'
                   }`}
                   id="empty-state"
                   onDragEnter={handleDragEnter}
@@ -166,87 +166,94 @@ export default function Home() {
                   onDragOver={handleDragOver}
                   onDrop={handleDrop}
                 >
-                  {/* Hexy Animation */}
+                  
                   <HexyAnimation />
                   
+                  
                   <div className="flex max-w-[480px] flex-col items-center gap-3">
-                    <h1 className="text-foreground text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] text-center">
-                      {isDragging ? "Drop your image here" : "Generate your color palette"}
+                    <h1 className="text-foreground text-2xl md:text-3xl font-bold leading-tight tracking-tight text-center">
+                      {isDragging ? "Drop your image here" : "Extract Colors from Any Image"}
                     </h1>
-                    <p className="text-secondary-foreground text-lg font-normal leading-normal text-center">
+                    <p className="text-secondary-foreground text-sm md:text-base leading-relaxed text-center max-w-[360px]">
                       {isDragging ? "Release to upload" : "Upload, drag & drop, or paste an image"}
                     </p>
                   </div>
                   
+                  
                   <button
                     onClick={handleUploadClick}
-                    className="px-8 py-4 active:scale-95 transition-transform duration-200 ease-out group upload-button"
+                    className="px-8 py-4 active:scale-[0.98] transition-all duration-150 group upload-button rounded-full"
                   >
                     <div className="flex items-center gap-3">
-                      <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                       </svg>
-                      <span className="text-foreground font-bold text-lg">Upload Photo</span>
+                      <span className="font-semibold text-base">Upload Image</span>
                     </div>
                   </button>
                 </div>
               )}
 
-              {/* Loading State */}
+              
               {isLoading && (
-                <div className="flex flex-col items-center justify-center py-12 md:py-16 gap-6 animate-in fade-in duration-300">
+                <div className="flex flex-col items-center justify-center py-12 md:py-16 gap-6 animate-fade-in">
                   {previewUrl && (
-                    <div className="px-4 w-full">
-                      <div className="relative rounded-3xl overflow-hidden w-full max-w-[600px] mx-auto">
+                    <div className="w-full">
+                      <div className="relative rounded-2xl overflow-hidden w-full max-w-[600px] mx-auto border border-border">
                         <img
                           src={previewUrl}
                           alt="Processing"
-                          className="w-full h-auto object-contain opacity-60"
+                          className="w-full h-auto object-contain opacity-50"
                         />
-                        {/* Processing Overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center bg-background/40 backdrop-blur-sm">
-                          <div className="glass-card p-6 rounded-3xl flex flex-col items-center gap-4">
+                        
+                        <div className="absolute inset-0 flex items-center justify-center bg-background/60 backdrop-blur-sm">
+                          <div className="glass-card p-6 rounded-2xl flex flex-col items-center gap-4">
                             <div className="animate-spin rounded-full h-12 w-12 border-4 border-accent border-t-transparent"></div>
-                            <p className="text-sm text-foreground font-medium">Processing image...</p>
+                            <p className="text-sm text-foreground font-semibold">Extracting colors...</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   )}
                   {!previewUrl && (
-                    <>
-                      <div className="glass-card p-6 rounded-3xl">
+                    <div className="flex flex-col items-center gap-4">
+                      <div className="glass-card p-6 rounded-2xl">
                         <div className="animate-spin rounded-full h-12 w-12 border-4 border-accent border-t-transparent"></div>
                       </div>
-                      <p className="text-lg text-foreground font-medium">Extracting colors...</p>
-                    </>
+                      <p className="text-base text-foreground font-semibold">Extracting colors...</p>
+                    </div>
                   )}
                 </div>
               )}
 
-              {/* Error State */}
+              
               {error && (
-                <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
-                  <p className="text-sm text-destructive">Error: {error}</p>
+                <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-xl animate-fade-in">
+                  <div className="flex items-center gap-3">
+                    <svg className="w-5 h-5 text-destructive flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-sm text-destructive font-semibold">{error}</p>
+                  </div>
                 </div>
               )}
 
-              {/* Populated State */}
+              
               {showPopulatedState && (
-                <div className="flex flex-col gap-8 animate-in fade-in duration-500" id="populated-state">
+                <div className="flex flex-col gap-6 animate-fade-in" id="populated-state">
                   {previewUrl && (
-                    <div className="px-4">
-                      <div className="relative rounded-3xl overflow-hidden w-full max-w-[600px] mx-auto group">
+                    <div className="relative">
+                      <div className="relative rounded-2xl overflow-hidden w-full max-w-[600px] mx-auto border border-border group">
                         <img
                           src={previewUrl}
                           alt="Uploaded"
                           className="w-full h-auto object-contain"
                         />
-                        {/* Action buttons overlay */}
-                        <div className="absolute top-4 right-4 flex gap-2">
+                        
+                        <div className="absolute top-3 right-3 flex gap-2">
                           <button
                             onClick={handleUploadClick}
-                            className="px-4 py-2 text-foreground text-sm font-medium active:scale-95 transition-transform duration-200 ease-out flex items-center gap-2 overlay-button"
+                            className="px-4 py-2 text-foreground text-sm font-semibold active:scale-95 transition-all duration-150 flex items-center gap-2 overlay-button rounded-full"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
@@ -255,7 +262,7 @@ export default function Home() {
                           </button>
                           <button
                             onClick={handleClear}
-                            className="p-2 text-foreground active:scale-95 transition-transform duration-200 ease-out overlay-button"
+                            className="p-2 text-foreground active:scale-95 transition-all duration-150 overlay-button rounded-full"
                             aria-label="Clear image"
                           >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -279,14 +286,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Palette Modal */}
+        
         <PaletteModal
         colors={colors}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
 
-      {/* Hamburger Menu */}
+      
       <HamburgerMenu
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}

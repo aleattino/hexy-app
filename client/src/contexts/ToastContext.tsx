@@ -35,7 +35,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     <ToastContext.Provider value={{ showToast }}>
       {children}
       
-      {/* Toast Container - Always at bottom center, above everything */}
+      
       <div
         id="toast-container-debug"
         style={{ 
@@ -72,7 +72,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
             aria-live="polite"
           >
             <div className="flex items-center gap-3">
-              {/* Success Icon */}
+              
               {toast.type === "success" && (
                 <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
                   <svg
@@ -91,7 +91,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
                 </div>
               )}
 
-              {/* Error Icon */}
+              
               {toast.type === "error" && (
                 <div className="flex-shrink-0 w-5 h-5 rounded-full bg-red-500 flex items-center justify-center">
                   <svg
@@ -110,14 +110,14 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
                 </div>
               )}
 
-              {/* Info Icon */}
+              
               {toast.type === "info" && (
                 <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
                   <span className="text-white text-xs font-bold">i</span>
                 </div>
               )}
 
-              {/* Message */}
+              
               <span className="text-sm font-medium text-foreground">
                 {toast.message}
               </span>

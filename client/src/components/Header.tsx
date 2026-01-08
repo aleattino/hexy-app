@@ -8,25 +8,20 @@ export default function Header({ onMenuClick }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] md:w-auto md:min-w-[500px] z-40 flex items-center justify-between px-4 py-2.5" style={{ 
-      backgroundColor: 'rgba(255, 255, 255, 0.7)',
-      backdropFilter: 'blur(12px) saturate(180%)',
-      WebkitBackdropFilter: 'blur(12px) saturate(180%)',
-      borderRadius: '9999px',
-      boxShadow: '0 4px 24px rgba(0, 0, 0, 0.08)'
-    }}>
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] md:w-auto md:min-w-[500px] z-40 flex items-center justify-between px-3 py-2 glass rounded-full">
+      
       <button 
         onClick={handleHomeClick}
-        className="flex items-center gap-2 px-4 py-2 active:scale-95 transition-all duration-200 ease-out rounded-full"
+        className="flex items-center gap-2 px-3 py-2 -ml-1 active:scale-95 transition-all duration-150 rounded-full hover:bg-foreground/5"
       >
         <img src="/hexy_logo.png" alt="Hexy" className="w-6 h-6 object-contain" />
-        <span className="text-foreground text-base font-bold leading-none">Hexy</span>
+        <span className="text-foreground text-base font-bold leading-none tracking-tight">Hexy</span>
       </button>
       
-      {/* Hamburger Menu Button */}
+      
       <button
         onClick={onMenuClick}
-        className="flex items-center justify-center w-9 h-9 active:scale-95 transition-all duration-200 ease-out rounded-full"
+        className="flex items-center justify-center w-9 h-9 active:scale-95 transition-all duration-150 rounded-full hover:bg-foreground/5"
         aria-label="Open menu"
       >
         <svg className="w-5 h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
