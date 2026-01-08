@@ -71,7 +71,7 @@ export default function HamburgerMenu({ isOpen, onClose, paletteHistory, onLoadP
           isClosing ? "animate-slide-right-out" : "animate-slide-right-in"
         }`}
       >
-        <div className="bg-background border-l border-border h-full flex flex-col">
+        <div className="bg-background/95 backdrop-blur-xl border-l border-border h-full flex flex-col">
           
           <div className="flex items-center justify-between px-6 py-6 border-b border-border">
             <div className="flex items-center gap-3">
