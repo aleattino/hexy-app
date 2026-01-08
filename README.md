@@ -13,7 +13,7 @@ A perceptually-accurate color palette generator that extracts dominant colors fr
 [![Vite](https://img.shields.io/badge/VITE-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
 [![License](https://img.shields.io/badge/LICENSE-MIT-22C55E?style=for-the-badge)](LICENSE)
-[![Version](https://img.shields.io/badge/VERSION-1.0.0-8B5CF6?style=for-the-badge)](https://github.com/aleattino/hexy-app/releases)
+[![Version](https://img.shields.io/badge/VERSION-1.1.0-8B5CF6?style=for-the-badge)](https://github.com/aleattino/hexy-app/releases)
 
 </div>
 
