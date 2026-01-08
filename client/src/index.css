@@ -308,6 +308,12 @@
   border: 1px solid var(--border);
 }
 
+/* Hamburger Menu Blur */
+.hamburger-menu-panel {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
 .dark .view-palette-button:hover {
   background: var(--secondary);
   border-color: var(--foreground);
